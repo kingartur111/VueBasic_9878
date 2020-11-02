@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script type="text/javascript" src="http://livejs.com/live.js"></script>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>Home</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+        
+        <div id="app" class="container is-fluid">
+        <div class="container is-fluid" id="showcase-content">
+            <div class="notification" id="showcase-content-invis">
+                <span v-if="hide == 1">
+                    {{angka}}
+                </span>
+                <div class="container is-fluid " >
+                    <div class="columns is-variable is-1-mobile is-1-tablet is-3-desktop is-8-widescreen is-2-fullhd">
+                        <div class="column ">
+                            <a href="#" class="box">
+                                <h1><b>{{judul}}</b></h1>
+                            </a>
+                            
+                        </div>
+                   </div>
+                   <br>
+                </div>
+                <br>
+                    <input class = "input" id="inputAngka" v-model="tebak" placeholder="Tulis Sesuatu..." :disabled="disable == 1"/>
+                <br>
+                <div>
+                    <button class = "button is-primary" @click="cekAngka()" :disabled="disable == 1">CEK</button>
+                    <br>
+                </div>
+
+                <span v-if="success == 1">
+                    <div class="columns is-variable is-1-mobile is-1-tablet is-3-desktop is-8-widescreen is-2-fullhd">
+                        <div class="column ">
+                            <a href="#" class="box">
+                                Benar Slur
+                                <br>
+                                Mau Main Lagi?
+                                <br>
+                                <button class ="button is-primary" @click="restart()" :disabled="disable == 0">Coba Lagi</button>
+                            </a>
+                        </div>
+                   </div>
+                   <br>
+                </span>
+                <span v-else-if= "success == 0">
+                    <span v-if="attempt > 0">
+                        <div class="columns is-variable is-1-mobile is-1-tablet is-3-desktop is-8-widescreen is-2-fullhd">
+                            <div class="column ">
+                                <a href="#" class="box">
+                                Masih Salah Gan
+                                <br>
+                                Masih Ada {{attempt}} Kesempatan Lagi, Mau Coba Lagi?
+                                <button class ="button is-primary" @click="reAttempt()" :disabled="disable == 0">Coba Lagi</button>
+                            </a>
+                        </div>
+                    </div>
+                    <br>
+                    </span>
+                    <span v-else-if="attempt == 0">
+                        <div class="columns is-variable is-1-mobile is-1-tablet is-3-desktop is-8-widescreen is-2-fullhd">
+                            <div class="column ">
+                                <a href="#" class="box">
+                                    Kesempatan Habis
+                                <button class ="button is-primary" @click="restart()" :disabled="disable == 0">Coba Lagi</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <br>
+                    </span>
+
+                    
+                </span>
+
+                
+                <footer class="footer">
+                    <div class="content has-text-centered">
+                        <p>
+                            <strong>{{nama}} | {{npm}} | {{kelas}}</strong>
+                        </p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+
+        </div>
+</body>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            judul:"tebak angka",
+            nama: "Alvin Kosasih",
+            npm : "180709878",
+            kelas: "B",
+            angka: Math.floor(Math.random() * 10) + 1,
+            tebak: 0,
+            success:undefined,
+            attempt: 3,
+            disable: 0,
+            hide: 1
+        },
+        methods: {
+            cekAngka(){
+
+                    if(this.tebak == this.angka)
+                    {
+                        alert `Benar Slur`;
+                        this.success =1;
+                    }
+                    else{
+                        alert `Salah`;
+                        this.success = 0;
+                    }
+                    this.disable = 1;
+
+
+            },
+            reAttempt(){
+                if(this.attempt > 0)
+                {
+                    this.disable =0;
+                    this.attempt--;
+                    this.success = undefined;
+                }else{
+                    alert `Atempt habis`;
+                }
+            },
+            restart(){
+                    this.disable = 0;
+                    this.attempt = 3;
+                    this.angka= Math.floor(Math.random() * 10) + 1;
+                    this.success = undefined;
+            },
+        },
+    });
+</script>
+
+
+</html>

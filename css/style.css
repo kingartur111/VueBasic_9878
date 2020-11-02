@@ -1,0 +1,236 @@
+.backgroundAll{
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: whitesmoke;
+    z-index: -1;
+}
+
+#navbar{
+    transition: all 1s;
+    position: fixed;
+    margin-left: 260px;
+    display: flex;
+    background: #f8f9fe;
+    height: 120px;
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    padding: 0px 30px;
+
+}
+
+.navbar{
+    background-color: #0D9FF1;
+}
+.navbaradmin{
+  background-color: #0D9FF1;
+  font-weight: 400;
+  font-size: 25px;  
+  height: 80px;
+  margin: auto;
+  text-align: center;
+  padding: 20px 8px;
+}
+
+#roundedBtn{
+    border-radius: 50px;
+}
+
+.foreground{
+    width: 100%;
+    height: auto;
+}
+
+
+.showcase {
+    color: white;
+    margin: auto;
+    width: 50%;
+    background: linear-gradient(0deg, #0D9FF1, #0D9FF1);
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  #showcase-content{
+
+    background: linear-gradient(180deg, rgba(13, 159, 241, 0.8) 0%, rgba(11, 166, 244, 0.8) 73.92%, rgba(4, 190, 254, 0.8) 100%);
+  }
+
+  #showcase-content-invis{
+    background: rgba(13, 159, 241, 0.00);
+  }
+
+.column{
+    text-align: center;
+    align-content: center;
+
+  }
+ .admin{
+  text-align: left;
+  align-items: center;
+}
+
+.icon_box{
+    color: teal;
+    background: whitesmoke;
+    border-radius: 40px;
+}
+
+.icon_text{
+    font-size: 10px;
+}
+
+.circle-profile{
+  border-radius: 100px;
+}
+
+#large-profile{
+
+  max-width: 256px;
+  max-height: 256px;
+}
+.centered-content{
+  align-content: center;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+
+.sidebar{
+  background-color: #38aff2;
+  transition: margin-left .5s ease-out;
+  min-width: 250px;
+}
+
+ #app .sidebar .header{
+  background-color: #7dd0ff;
+  text-align: center;
+  padding: 32px 8px;
+  margin: auto;
+}
+ .sidebar .header{
+  font-family: 'Segoe UI';
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  font-size: 32px;
+}
+
+
+
+#app{
+  display: flex;
+  max-width: 100%;
+  min-height: 100vh;
+}
+#app .sidebar .body{
+  margin-top: 64px;
+}
+#app .sidebar .body a{
+  text-decoration: none;
+}
+#app .sidebar .body .item{
+  color: #F5F6FA;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) ;
+  padding: 18px 24px;
+  font-size: 14px ;
+}
+
+#app .sidebar .body .item:hover{
+  background-color: #0D9FF1
+}
+.link{
+  text-decoration: none;
+}
+.content .body .title{
+  color: #4B6584;
+}
+
+ .hamburger{
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  width: 22px;
+}
+
+ .hamburger div{
+  border: 1px solid #A5B1C2;
+  margin-top: 6px;
+}
+
+.content{
+  width: 100%;
+  padding: 10px 20px;
+}
+
+.adminicon{
+  background-color: #38aff2;
+  width: 20px;
+  height: 100px;
+}
+.grafik{
+  height: 450px;
+}
+
+.active{
+  background-color: #0D9FF1;
+}
+
+#log-out{
+  color: white;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+/* Style the close button */
+.topright {
+  float: right;
+  cursor: pointer;
+  font-size: 28px;
+}
+
+.topright:hover {color: red;}
+
+#white {
+  background-color: whitesmoke;
+}
