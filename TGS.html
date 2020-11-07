@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script type="text/javascript" src="http://livejs.com/live.js"></script>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>Home</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="app" class="container">
+            <div class="container">
+                <div class="container is-fluid">
+                    <div class="card" id="showcase-content">
+                        
+                        <div class="container is-fluid">
+                                <div class="field">
+                                    <label class="label">Apa yang Mau Anda Kerjakan?</label>
+                                    <div class="control">
+                                        <input class="input" type="text" placeholder="input Nama" id="nama" v-model="nama">
+                                    </div>
+                                </div>
+
+
+                            <div class="field " required>
+                                <label class="label">Seberapa Penting?</label>
+                                <div class="control" required>
+                                    <div class="select" v-model="prioritas" required>
+                                    <select required name="jenisPengiriman" id="prioritas" v-model="prioritas"> 
+                                        <option value="">Pilih Prioritas</option>
+                                        <option value="Penting!!!">Penting</option>
+                                        <option value="Biasa">Biasa</option>
+                                        <option value="Tidak Penting">Tidak Penting</option>
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <p class="help">Informasi Aktivitas</p>
+                                <div class="columns">
+                                    <div class="column" id="left">
+                                        <div class="field">
+                                            <div class="control">
+                                                <textarea class="textarea" type="textarea" placeholder="input" id="Informasi" v-model="informasi"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="field is-grouped">
+                                <div class="control">
+                                    <button class="button is-link" name="add" @click="addData()">Submit</button>
+                                </div>
+                                <div class="control">
+                                    <button class="button is-link is-light" name="cancel" @click="clrData()">Cancel</button>
+                                </div>
+                            </div>
+
+
+
+                            <ul v-for="(data, index) in rows" :key="index">
+                                <div class="columns is-variable is-1-mobile is-1-tablet is-3-desktop is-8-widescreen is-2-fullhd">
+                                    <div class="column">
+                                        <a class="box has-text-left">
+                                            <span v-if ="data.prioritas == 'Penting!!!'"> 
+                                                <li style="color: red;">{{data.prioritas}}</li>
+                                            </span>
+                                            <span v-else-if ="data.prioritas == 'Biasa'"> 
+                                                <li style="color: blue;">{{data.prioritas}}</li>
+                                            </span>
+                                            <span v-else> 
+                                                <li style="color: green;">{{data.prioritas}}</li>
+                                            </span> 
+                                            
+                                            <li><h1><b> {{data.nama}} </b></h1></li>
+                                            <li>{{data.informasi}}</li>
+                                            <button class="button is-link is-light" name="cancel" @click="deleteData(index)">Delete</button>
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                            </ul>
+                            
+                    </div>
+            </div>
+
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>
+                        <strong>{{ mahasiswa.Nama }} | {{ mahasiswa.NPM }} | {{ mahasiswa.Kelas }}</strong>
+                    </p>
+                </div>
+            </footer>
+            </div>
+
+    </div>
+
+</body>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            rows:[],
+            mahasiswa:{
+                Nama:"Alvin Kosasih",
+                NPM:"180709878",
+                Kelas:"B"
+            },
+            informasi:'',
+            nama:'',
+            prioritas:''
+
+        },
+        methods: {
+           addData(){
+               if(this.informasi == '' || this.nama == ''||this.prioritas == '')
+               {
+                   alert("Jangan Kosong Gan/Sis !!!");
+               }else{
+                   this.rows.push({
+                   nama: this.nama,
+                   prioritas : this.prioritas,
+                   informasi : this.informasi
+                    })
+                    alert("Masok Pak Eko");
+                    this.nama ='';
+                    this.informasi='';
+                    this.prioritas='';
+               }
+           },
+           clrData(){
+                this.nama ='';
+                this.informasi='';
+                this.prioritas='';
+            },
+            deleteData(index){
+                this. rows.splice(index, 1)
+            }
+        },
+    });
+</script>
+
+
+</html>
